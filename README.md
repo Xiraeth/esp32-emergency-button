@@ -53,10 +53,10 @@ Example Connection Configuration -> WiFi Password
 
 ## Build And Flash
 
-Load the ESP-IDF environment first:
+Load the ESP-IDF environment first. Mine is located at, but each installation might be different:
 
 ```bash
-source ~/esp/esp-idf/export.sh
+source ~/.espressif/v6.0.1/esp-idf/export.sh/esp-idf/export.sh
 ```
 
 If your ESP-IDF install is somewhere else, source that `export.sh` instead.
@@ -104,4 +104,4 @@ Button released
 
 The firmware only sends the HTTP request. A separate server must be running at `SERVER_URL`.
 
-For this project, the intended server is the Discord bot emergency HTTP listener running on port `3000` in development mode. Any server that accepts `POST /emergency` with JSON will work.
+For this project, the intended server is the [Discord bot](https://github.com/Xiraeth/discord-narrator) emergency HTTP listener running on port `3000` in development mode. Any server that accepts `POST /emergency` with JSON will work.
