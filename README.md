@@ -53,10 +53,10 @@ Example Connection Configuration -> WiFi Password
 
 ## Build And Flash
 
-Load the ESP-IDF environment first. Mine is located at, but each installation might be different:
+Load the ESP-IDF environment first. The exact path depends on your local ESP-IDF installation:
 
 ```bash
-source ~/.espressif/v6.0.1/esp-idf/export.sh/esp-idf/export.sh
+source ~/.espressif/v6.0.1/esp-idf/export.sh
 ```
 
 If your ESP-IDF install is somewhere else, source that `export.sh` instead.
@@ -82,6 +82,24 @@ idf.py -p [PORT] flash monitor
 Use the serial device that matches your board.
 
 Exit the monitor with `Ctrl+]`.
+
+## Python Test Dependencies
+
+The pytest file uses Espressif's embedded test packages. Install them into the Python environment used by your editor or terminal:
+
+```bash
+python3 -m pip install -r requirements-test.txt
+```
+
+If VS Code still reports `Import "pytest_embedded" could not be resolved`, make sure VS Code is using the same Python interpreter where you installed these packages.
+
+Run the test with the ESP-IDF and ESP serial services enabled:
+
+```bash
+pytest pytest_esp_http_client.py --embedded-services esp,idf --target esp32s3 --port /dev/ttyUSB0
+```
+
+Use the serial port that matches your board.
 
 ## Expected Logs
 
